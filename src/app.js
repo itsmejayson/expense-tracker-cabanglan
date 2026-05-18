@@ -5,7 +5,13 @@ import cors from "cors"; // Import CORS middleware
 
 const app = express(); // Create Express app
 
-app.use(cors()); // Enable CORS for all routes
+app.use(
+  cors({
+    origin: "https://expense-tracker-cabanglan-fe.onrender.com", // Allow your deployed frontend
+    methods: ["GET", "POST", "PUT", "PATCH", "DELETE"], // Allow API methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allow JSON and JWT headers
+  })
+);
 
 app.use(express.json()); // Parse JSON request bodies
 
