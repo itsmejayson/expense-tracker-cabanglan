@@ -1,0 +1,71 @@
+### Db health check
+GET http://localhost:5000/api/db-test
+
+### Create user
+POST http://localhost:5000/api/
+Content-Type: application/json
+
+{
+  "name": "Jayson Cabanglan",
+  "email": "jayson@gmail.com",
+  "password": "securepassword"
+}
+
+### Get all users
+GET http://localhost:5000/api/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkMDVlMmY0Ny1kOGQxLTRjOTctOWIyNi03NTI2MmU0YzQyZGEiLCJpYXQiOjE3NzkxMjAwMjEsImV4cCI6MTc3OTEyMzYyMX0.8RLsPzmlK9KYFZ3A_3zKSOC4k3Ku6KPFxJ16_CnXCcM
+
+### Get user by ID
+GET http://localhost:5000/api/d05e2f47-d8d1-4c97-9b26-75262e4c42da
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiJkMDVlMmY0Ny1kOGQxLTRjOTctOWIyNi03NTI2MmU0YzQyZGEiLCJpYXQiOjE3NzkxMjAwMjEsImV4cCI6MTc3OTEyMzYyMX0.8RLsPzmlK9KYFZ3A_3zKSOC4k3Ku6KPFxJ16_CnXCcM
+
+### Login user
+POST http://localhost:5000/api/login
+Content-Type: application/json
+
+{
+  "email": "jayson@gmail.com",
+  "password": "securepassword"
+}
+
+### Create transaction
+POST http://localhost:5000/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwNWUyZjQ3LWQ4ZDEtNGM5Ny05YjI2LTc1MjYyZTRjNDJkYSIsImVtYWlsIjoiamF5c29uQGdtYWlsLmNvbSIsImlhdCI6MTc3OTEyOTg0MiwiZXhwIjoxNzc5MjE2MjQyfQ.2kcL7HGTWBKOKSANyzJeDZvSBQehqDb-H_4uYY0mBZM
+
+{
+  "userId": "d05e2f47-d8d1-4c97-9b26-75262e4c42da",
+  "title": "Lunch",
+  "amount": 185.5,
+  "description": "Lunch at Jollibee",
+  "type": "expense",
+  "categoryId": "396bcca7-c5bb-40a5-bc4a-0404d0187f49",
+  "paymentMethodId": "038512eb-be06-45de-9e85-1d41eb52ae06",
+  "transactionDate": "2026-05-19"
+}
+
+### Create transaction
+POST http://localhost:5000/api/transactions
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwNWUyZjQ3LWQ4ZDEtNGM5Ny05YjI2LTc1MjYyZTRjNDJkYSIsImVtYWlsIjoiamF5c29uQGdtYWlsLmNvbSIsImlhdCI6MTc3OTEyOTg0MiwiZXhwIjoxNzc5MjE2MjQyfQ.2kcL7HGTWBKOKSANyzJeDZvSBQehqDb-H_4uYY0mBZM
+
+{
+  "userId": "d05e2f47-d8d1-4c97-9b26-75262e4c42da",
+  "title": "salary",
+  "amount": 30000,
+  "description": "Salary for May",
+  "type": "income",
+  "categoryId": "396bcca7-c5bb-40a5-bc4a-0404d0187f49",
+  "paymentMethodId": "038512eb-be06-45de-9e85-1d41eb52ae06",
+  "transactionDate": "2026-05-19"
+}
+
+### Get Categories for user
+GET http://localhost:5000/api/categories/"d05e2f47-d8d1-4c97-9b26-75262e4c42da"
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwNWUyZjQ3LWQ4ZDEtNGM5Ny05YjI2LTc1MjYyZTRjNDJkYSIsImVtYWlsIjoiamF5c29uQGdtYWlsLmNvbSIsImlhdCI6MTc3OTEyODg0MiwiZXhwIjoxNzc5MjE1MjQyfQ.xdWlxq_9A1RiyIDB0ZUhX_VBRDVFikTOLi7w3s29yI0
+
+### Get Payment Methods for user
+GET http://localhost:5000/api/payment-methods/"d05e2f47-d8d1-4c97-9b26-75262e4c42da"
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ImQwNWUyZjQ3LWQ4ZDEtNGM5Ny05YjI2LTc1MjYyZTRjNDJkYSIsImVtYWlsIjoiamF5c29uQGdtYWlsLmNvbSIsImlhdCI6MTc3OTEyODg0MiwiZXhwIjoxNzc5MjE1MjQyfQ.xdWlxq_9A1RiyIDB0ZUhX_VBRDVFikTOLi7w3s29yI0
